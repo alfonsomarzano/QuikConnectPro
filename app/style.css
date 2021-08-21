@@ -1,0 +1,81 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#results {
+    margin: 10px 0 0 0;
+    color: white;
+    height: calc(100vh - 90px);
+    overflow-y: none;
+    overflow-x: none;
+}
+
+#results>.row {
+    height: 50px;
+    cursor: pointer;
+}
+
+#results>.row>.col-6:first-child {
+    font-size: 24px;
+}
+
+#results>.row .ip {
+    margin-left: 10px;
+}
+
+#results>.row.rdp {
+    background-color: #402eb8;
+}
+
+#results>.row.ssh {
+    background-color: #380724;
+}
+
+#results>.row.telnet {
+    background-color: #4d5451;
+}
+
+#results>.row.htp {
+    background-color: #91263d;
+}
+
+#results>.row.hts {
+    background-color: #78116c;
+}
+
+#results>.row.smb {
+    background-color: #036572;
+}
+
+.form-control {
+    border-color: white;
+    color: white!important;
+    margin: 1px;
+}
+
+.mt5px {
+    margin-top: 5px;
+}
+
+.mt10px {
+    margin-top: 5px;
+}
+
+.jc {
+    justify-content: center;
+}
+
+.doh {
+    width: 3px;
+    background-color: red!important;
+}
+
+.favimg {
+    width: 16px;
+    height: 16px;
+}
+
+.proto {
+    border: 6px white;
+}

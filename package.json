@@ -1,0 +1,22 @@
+{
+  "name": "quikconnectpro",
+  "version": "1.0.0",
+  "description": "quickly connect to network resources over multiple protocols",
+  "main": "index.js",
+  "scripts": {
+    "test": "electron ."
+  },
+  "author": "ey.sys",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^13.2.1",
+    "electron-packager": "^15.3.0"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.9.3",
+    "bootstrap": "^5.1.0",
+    "electron-traywindow-positioner": "^1.1.0",
+    "jquery": "^3.6.0",
+    "underscore": "^1.13.1"
+  }
+}
