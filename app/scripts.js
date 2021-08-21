@@ -16,14 +16,38 @@ $(() => {
 })
 
 
-$("#searchbyip").keyup(() => {
+$("#searchbyip").keyup(function(event) {
     var txtInput = $('#searchbyip').val()
-    console.log(txtInput)
     var items = objArray.filter(i => i.IpOrDN.includes(txtInput))
     $("#results > .row").css('display', 'none')
     items.forEach(itm => {
         $('#results > .row[conn-id="' + itm.Id + '"]').css('display', '')
     })
+})
+
+$("#searchbyip").on('keypress', function(e) {
+    if (e.which == 13) {
+        var txtInput = $('#searchbyip').val()
+        var items = objArray.filter(i => i.IpOrDN.includes(txtInput))
+        $('#results > .row[conn-id="' + items[0].Id + '"]').click()
+    }
+})
+
+$("#searchbydesc").keyup(() => {
+    var txtInput = $('#searchbydesc').val()
+    var items = objArray.filter(i => i.Description.includes(txtInput))
+    $("#results > .row").css('display', 'none')
+    items.forEach(itm => {
+        $('#results > .row[conn-id="' + itm.Id + '"]').css('display', '')
+    })
+})
+
+$("#searchbydesc").on('keypress', function(e) {
+    if (e.which == 13) {
+        var txtInput = $('#searchbydesc').val()
+        var items = objArray.filter(i => i.Description.includes(txtInput))
+        $('#results > .row[conn-id="' + items[0].Id + '"]').click()
+    }
 })
 
 $("#addForm").submit(function(event) {
@@ -56,15 +80,7 @@ $("#btn-add").click(() => {
     ipcRenderer.send("openview-add")
 })
 
-$("#searchbydesc").keyup(() => {
-    var txtInput = $('#searchbydesc').val()
-    console.log(txtInput)
-    var items = objArray.filter(i => i.Description.includes(txtInput))
-    $("#results > .row").css('display', 'none')
-    items.forEach(itm => {
-        $('#results > .row[conn-id="' + itm.Id + '"]').css('display', '')
-    })
-})
+
 
 function addRow(el) {
     var protocol = $("<span></span>").addClass("protocol proto").text(el.ConnectionType.toUpperCase())
