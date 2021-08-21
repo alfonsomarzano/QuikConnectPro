@@ -17,6 +17,7 @@ QuikConnectPro is a small helpful utility to help you quickly connect with your 
 ## Simple JSON Schema
 
 Resources are stored in a JSON file with a simple schema:
+For security reasons, the items.json file is not included in this repository and must be manually created inside the /app folder.
 ```json
 [{
 "ConnectionType": "SSH",
