@@ -28,7 +28,7 @@ body {
 }
 
 #results>.row>.col-6:first-child {
-    font-size: 24px;
+    font-size: 16px;
 }
 
 #results>.row .ip {

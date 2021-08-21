@@ -9,8 +9,8 @@ const iconpath = path.join(__dirname, "icon.ico")
 
 function CreateWindow() {
     w = new BrowserWindow({
-        width: 600,
-        height: 800,
+        width: 400,
+        height: 600,
         title: "QuikConnect",
         icon: iconpath,
         resizable: false,
