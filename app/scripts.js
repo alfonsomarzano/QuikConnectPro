@@ -6,7 +6,6 @@ const _ = require("underscore")
 var objArray = null;
 
 $(() => {
-
     var jsString = fs.readFileSync(path.join(__dirname, "items.json"), "utf-8")
     objArray = JSON.parse(jsString)
     objArray = _.sortBy(objArray, 'Quick').reverse()
@@ -16,26 +15,14 @@ $(() => {
 })
 
 
-$("#searchbyip").keyup(function(event) {
-    var txtInput = $('#searchbyip').val()
-    var items = objArray.filter(i => i.IpOrDN.includes(txtInput))
-    $("#results > .row").css('display', 'none')
-    items.forEach(itm => {
-        $('#results > .row[conn-id="' + itm.Id + '"]').css('display', '')
-    })
-})
-
 $("#searchbyip").on('keypress', function(e) {
     if (e.which == 13) {
         var txtInput = $('#searchbyip').val()
         var items = objArray.filter(i => i.IpOrDN.includes(txtInput))
         $('#results > .row[conn-id="' + items[0].Id + '"]').click()
     }
-})
-
-$("#searchbydesc").keyup(() => {
-    var txtInput = $('#searchbydesc').val()
-    var items = objArray.filter(i => i.Description.includes(txtInput))
+    var txtInput = $('#searchbyip').val()
+    var items = objArray.filter(i => i.IpOrDN.includes(txtInput))
     $("#results > .row").css('display', 'none')
     items.forEach(itm => {
         $('#results > .row[conn-id="' + itm.Id + '"]').css('display', '')
@@ -48,6 +35,12 @@ $("#searchbydesc").on('keypress', function(e) {
         var items = objArray.filter(i => i.Description.includes(txtInput))
         $('#results > .row[conn-id="' + items[0].Id + '"]').click()
     }
+    var txtInput = $('#searchbydesc').val()
+    var items = objArray.filter(i => i.Description.includes(txtInput))
+    $("#results > .row").css('display', 'none')
+    items.forEach(itm => {
+        $('#results > .row[conn-id="' + itm.Id + '"]').css('display', '')
+    })
 })
 
 $("#addForm").submit(function(event) {
@@ -90,7 +83,6 @@ function addRow(el) {
     } else {
         var ip = $("<span></span>").addClass("ip").text(el.IpOrDN)
     }
-
 
     var colLeft = $("<div></div>").addClass("col-6  d-flex align-items-center")
     colLeft.append(protocol)
