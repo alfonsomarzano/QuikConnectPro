@@ -14,6 +14,19 @@ $(() => {
     });
 })
 
+$(window).on('blur', () => {
+    $("#searchbyip").val("")
+    $("#searchbydesc").val("")
+
+    var e = $.Event("keypress");
+    e.which = 8; // # Some key code value
+    $("#searchbyip").trigger(e);
+    $("#searchbydesc").trigger(e);
+})
+
+$(window).on('focus', () => {
+    $("#searchbyip").focus()
+})
 
 $("#searchbyip").on('keypress', function(e) {
     if (e.which == 13) {
@@ -127,4 +140,5 @@ function getFaviconUrl(path) {
     var protocol = pathArray[0];
     var host = pathArray[2];
     return protocol + '//' + host + "/favicon.ico";
+    //need to check if favicon exists
 }
