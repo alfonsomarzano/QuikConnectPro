@@ -70,8 +70,9 @@ $("#addForm").submit(function(event) {
     value.Quick = false
 
 
-    if (value.IpOrDN.includes("http"))
+    if (value.IpOrDN.includes("http")) {
         value.Favicon = getFaviconUrl(value.IpOrDN)
+    }
 
     objArray.push(value)
     fs.writeFileSync(path.join(__dirname, "items.json"), JSON.stringify(objArray), "utf-8")
@@ -91,12 +92,12 @@ $("#btn-add").click(() => {
 function addRow(el) {
     var protocol = $("<span></span>").addClass("protocol proto").text(el.ConnectionType.toUpperCase())
     if (el.ConnectionType == "HTP" || el.ConnectionType == "HTS") {
-        var ip = $("<span></span>").addClass("ip").text(el.IpOrDN.replace(/(^\w+:|^)\/\//, ''))
+        checkImage(el.Favicon, function() {}, function() { protocol = $("<span></span>").addClass("protocol proto").text(el.ConnectionType.toUpperCase()) });
         protocol = $("<img></img>").attr("src", getFaviconUrl(el.IpOrDN)).addClass("favimg")
+        var ip = $("<span></span>").addClass("ip").text(el.IpOrDN.replace(/(^\w+:|^)\/\//, ''))
     } else {
         var ip = $("<span></span>").addClass("ip").text(el.IpOrDN)
     }
-
     var colLeft = $("<div></div>").addClass("col-6  d-flex align-items-center")
     colLeft.append(protocol)
     colLeft.append(ip)
@@ -140,5 +141,11 @@ function getFaviconUrl(path) {
     var protocol = pathArray[0];
     var host = pathArray[2];
     return protocol + '//' + host + "/favicon.ico";
-    //need to check if favicon exists
+}
+
+function checkImage(imageSrc, good, bad) {
+    var img = new Image();
+    img.onload = good;
+    img.onerror = bad;
+    img.src = imageSrc;
 }
