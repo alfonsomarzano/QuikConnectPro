@@ -7,21 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="lib/bootstrap.min.css">
     <link rel="stylesheet" href="lib/font-awesome.min.css">
-
-    <!-- Insert this line above script imports  -->
     <script>
         if (typeof module === 'object') {
             window.module = module;
             module = undefined;
         }
-    </script>
-
-    <!-- normal script imports etc  -->
-    <script>
         let $ = require('jquery');
         require('bootstrap');
-    </script>
-    <script>
         if (window.module) module = window.module;
     </script>
     <link rel="stylesheet" href="style.css">
@@ -43,7 +35,6 @@
     <div class="container-fluid" id="results">
 
     </div>
-    <script src="utils.js"></script>
     <script src="scripts.js"></script>
 </body>
 
