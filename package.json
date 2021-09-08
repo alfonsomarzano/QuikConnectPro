@@ -17,6 +17,7 @@
     "bootstrap": "^5.1.0",
     "electron-traywindow-positioner": "^1.1.0",
     "jquery": "^3.6.0",
-    "underscore": "^1.13.1"
+    "underscore": "^1.13.1",
+    "util": "^0.12.4"
   }
 }
