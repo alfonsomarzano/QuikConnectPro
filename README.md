@@ -47,7 +47,7 @@ A separate json file can be created to allow for custom protocols using the foll
 [{
 "ProtoName": "SSH",
 "CommandName": "ssh",
-"Arguments":["arg1","arg2"]
-"Shell": "wt", #or cmd, powershell, wsl etc. 
+"Arguments":["arg1","arg2"],
+"Shell": "wt (or cmd, powershell, wsl etc.)" 
 }]
 ```
