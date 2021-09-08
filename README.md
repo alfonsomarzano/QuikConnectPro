@@ -41,3 +41,13 @@ For security reasons, the items.json file is not included in this repository and
 	}
 },]
 ```
+
+A separate json file can be created to allow for custom protocols using the following format (In Development)
+```json
+[{
+"ProtoName": "SSH",
+"CommandName": "ssh",
+"Arguments":["arg1","arg2"]
+"Shell": "wt", #or cmd, powershell, wsl etc. 
+}]
+```
